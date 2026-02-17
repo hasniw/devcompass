@@ -1,0 +1,42 @@
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+
+const inter = Inter({ subsets: ['latin'] });
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://devcompass.fr'),
+  title: {
+    default: 'DevCompass - Comparateur de formations tech & bootcamps en France',
+    template: '%s | DevCompass'
+  },
+  description: 'Comparez les meilleures formations tech et bootcamps en France : Le Wagon, Ironhack, Jedha, OpenClassrooms... Prix, avis, durée et taux d\'insertion.',
+  openGraph: {
+    type: 'website',
+    locale: 'fr_FR',
+    siteName: 'DevCompass',
+    title: 'DevCompass - Comparateur de formations tech & bootcamps en France',
+    description: 'Comparez les meilleures formations tech et bootcamps en France. Prix, avis, durée et taux d\'insertion.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="fr">
+      <body className={inter.className}>
+        <Header />
+        <main className="min-h-screen">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
+}
