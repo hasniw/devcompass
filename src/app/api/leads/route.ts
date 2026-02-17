@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-
-const LEADS_FILE = '/tmp/devcompass-leads.json';
+import { supabase } from '@/lib/supabase';
 
 export async function POST(req: NextRequest) {
   try {
@@ -11,18 +9,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
-    const lead = { firstName, email, phone: phone || null, formation, createdAt: new Date().toISOString() };
+    const { error } = await supabase.from('leads').insert({
+      first_name: firstName,
+      email,
+      phone: phone || null,
+      formation,
+      source: 'website',
+    });
 
-    let leads: unknown[] = [];
-    try {
-      const data = await fs.readFile(LEADS_FILE, 'utf-8');
-      leads = JSON.parse(data);
-    } catch {
-      // file doesn't exist yet
+    if (error) {
+      console.error('Supabase error:', error);
+      return NextResponse.json({ error: 'Failed to save lead' }, { status: 500 });
     }
-
-    leads.push(lead);
-    await fs.writeFile(LEADS_FILE, JSON.stringify(leads, null, 2));
 
     return NextResponse.json({ success: true });
   } catch {
