@@ -3,24 +3,11 @@
 import Link from 'next/link';
 import { Formation } from '@/data/formations';
 import StarRating from './StarRating';
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function FormationCard({ formation, index = 0 }: { formation: Formation; index?: number }) {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const Wrapper = mounted ? motion.div : ('div' as any);
-  const motionProps = mounted ? {
-    initial: { opacity: 0, y: 30 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true },
-    transition: { duration: 0.5, delay: index * 0.1 },
-  } : {};
-
   return (
-    <Wrapper {...motionProps}>
+    <div>
       <Link href={`/formations/${formation.slug}`} className="group block h-full">
         <div className="glass rounded-2xl p-6 h-full flex flex-col hover:bg-white/10 hover:border-violet-500/30 hover:scale-[1.02] hover:glow-purple transition-all duration-500">
           <div className="flex items-start justify-between mb-4">
@@ -69,6 +56,6 @@ export default function FormationCard({ formation, index = 0 }: { formation: For
           </div>
         </div>
       </Link>
-    </Wrapper>
+    </div>
   );
 }
