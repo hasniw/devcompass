@@ -487,7 +487,242 @@ Epitech Digital se positionne comme une alternative plus accessible qu'Epitech (
     ],
     features: ["HTML/CSS", "JavaScript", "Python", "UX Design", "Data Analytics", "Marketing Digital", "Agile"],
     affiliateUrl: "https://www.epitech.digital/?utm_source=devcompass&utm_medium=referral"
-  }
+  },
+  {
+    slug: "maestria",
+    name: "Maestria",
+    shortDescription: "École spécialisée en Intelligence Artificielle et Data Science. Formations certifiantes de 3 à 12 mois.",
+    description: `Maestria est une école française fondée en 2021, spécialisée dans les métiers de l'Intelligence Artificielle et de la Data. Basée à Paris avec des formations disponibles en remote, elle propose des parcours intensifs de 3 à 12 mois pour devenir Data Analyst, Data Scientist ou Machine Learning Engineer.
+
+Le programme est conçu par des professionnels en activité chez des grands groupes (LVMH, Société Générale, Capgemini). L'approche est résolument pratique : chaque module se termine par un projet sur données réelles fournies par des entreprises partenaires.
+
+Maestria se distingue par un accompagnement personnalisé avec un ratio formateur/élève très favorable (1 pour 12 maximum). La certification RNCP est en cours d'obtention, mais les formations sont déjà éligibles au CPF via un partenariat avec un organisme certificateur.`,
+    price: 7500,
+    priceLabel: "7 500 €",
+    duration: "3 à 12 mois selon le parcours",
+    durationWeeks: 24,
+    format: ["Présentiel", "Remote", "Temps plein", "Temps partiel"],
+    cities: ["Paris", "Remote"],
+    categories: ["data"],
+    cpf: true,
+    rating: 4.3,
+    reviewCount: 342,
+    insertionRate: 87,
+    website: "https://www.maestria.co",
+    logo: "/logos/maestria.svg",
+    pros: [
+      "Spécialisation IA/Data poussée",
+      "Formateurs issus de grands groupes",
+      "Petites promotions, suivi personnalisé",
+      "Projets sur données réelles d'entreprises",
+      "Éligible CPF"
+    ],
+    cons: [
+      "École encore jeune, moins de recul",
+      "Un seul campus physique (Paris)",
+      "Réseau alumni en construction",
+      "Certification RNCP pas encore obtenue en propre"
+    ],
+    reviews: [
+      {
+        author: "Julien M.",
+        rating: 5,
+        date: "2025-11-10",
+        text: "Excellente formation Data Science. Les projets avec des vraies entreprises font la différence en entretien. Formateurs très compétents.",
+        context: "Reconversion depuis la finance"
+      },
+      {
+        author: "Amina K.",
+        rating: 4,
+        date: "2025-09-05",
+        text: "Bon contenu, bien structuré. L'école est encore jeune mais la qualité est au rendez-vous. Le réseau se construit peu à peu.",
+        context: "Analyste en reconversion"
+      }
+    ],
+    features: ["Python", "SQL", "Machine Learning", "Deep Learning", "TensorFlow", "Power BI", "Cloud GCP"],
+    affiliateUrl: "https://www.maestria.co/?utm_source=devcompass&utm_medium=referral&utm_campaign=fiche"
+  },
+  {
+    slug: "doranco",
+    name: "Doranco",
+    shortDescription: "École du digital proposant des formations en développement web, design et marketing digital, accessibles en alternance.",
+    description: `Doranco est un centre de formation professionnelle fondé en 2010, spécialisé dans les métiers du digital. Basé à Paris (Bagnolet) avec un second campus à Massy, Doranco propose des formations de niveau Bac à Bac+5 en développement web, webdesign, marketing digital et gestion de projet IT.
+
+Le gros atout de Doranco est l'alternance : la majorité des formations sont accessibles en contrat de professionnalisation ou d'apprentissage, ce qui les rend gratuites pour l'étudiant. Les parcours durent de 6 mois à 2 ans selon le niveau visé.
+
+L'école travaille avec un réseau d'entreprises partenaires pour placer ses alternants. L'encadrement est de type scolaire avec des classes de 15 à 20 personnes, ce qui permet un suivi individualisé.`,
+    price: 0,
+    priceLabel: "Gratuit en alternance (ou 5 500 € en formation continue)",
+    duration: "6 mois à 2 ans selon le parcours",
+    durationWeeks: 40,
+    format: ["Présentiel", "Alternance", "Temps plein"],
+    cities: ["Paris (Bagnolet)", "Massy"],
+    categories: ["dev-web", "design"],
+    cpf: true,
+    rating: 3.8,
+    reviewCount: 567,
+    insertionRate: 76,
+    website: "https://www.doranco.fr",
+    logo: "/logos/doranco.svg",
+    pros: [
+      "Gratuit en alternance",
+      "Diplômes reconnus par l'État (RNCP)",
+      "Accompagnement dans la recherche d'alternance",
+      "Petites classes, suivi personnalisé",
+      "Éligible CPF"
+    ],
+    cons: [
+      "Notoriété limitée dans le milieu tech",
+      "Qualité variable selon les formateurs",
+      "Locaux un peu vieillissants",
+      "Peu de campus (Île-de-France uniquement)",
+      "Taux d'insertion moyen comparé aux bootcamps"
+    ],
+    reviews: [
+      {
+        author: "Mehdi S.",
+        rating: 4,
+        date: "2025-10-18",
+        text: "Bonne formation dev web en alternance. L'avantage c'est que c'est gratuit et on a de l'expérience pro. Les cours sont bien structurés.",
+        context: "Alternant développeur web"
+      },
+      {
+        author: "Clara N.",
+        rating: 3,
+        date: "2025-07-22",
+        text: "Correct pour le prix (gratuit en alternance) mais certains formateurs ne sont pas au niveau. L'accompagnement entreprise est le vrai plus.",
+        context: "Formation webdesign"
+      }
+    ],
+    features: ["HTML/CSS", "JavaScript", "PHP", "WordPress", "React", "MySQL", "Figma"],
+    affiliateUrl: "https://www.doranco.fr/?utm_source=devcompass&utm_medium=referral&utm_campaign=fiche"
+  },
+  {
+    slug: "studi",
+    name: "Studi",
+    shortDescription: "Leader français de la formation en ligne avec plus de 200 parcours diplômants accessibles 100% à distance.",
+    description: `Studi est le leader français de la formation en ligne, fondé en 2019 après la fusion de plusieurs organismes de formation à distance. Avec plus de 70 000 apprenants et 200 parcours, Studi couvre un large spectre de métiers : développement web, data, cybersécurité, marketing digital, design, et bien d'autres.
+
+Le modèle Studi repose sur une plateforme e-learning accessible 24h/24 avec des cours en vidéo, des exercices interactifs et des projets. Chaque apprenant bénéficie d'un coach dédié et peut passer sa certification à distance.
+
+Le principal avantage de Studi est son prix compétitif et sa flexibilité totale : vous apprenez à votre rythme, depuis chez vous, avec des rentrées tout au long de l'année. Les formations sont éligibles au CPF et débouchent sur des diplômes reconnus (RNCP).`,
+    price: 3490,
+    priceLabel: "3 490 € (ou prise en charge CPF/alternance)",
+    duration: "6 à 24 mois selon le parcours",
+    durationWeeks: 48,
+    format: ["Remote", "Temps plein", "Temps partiel", "Alternance"],
+    cities: ["Remote (100% en ligne)"],
+    categories: ["dev-web", "data", "cybersec", "design"],
+    cpf: true,
+    rating: 3.9,
+    reviewCount: 4230,
+    insertionRate: 72,
+    website: "https://www.studi.com",
+    logo: "/logos/studi.svg",
+    pros: [
+      "Prix très compétitif",
+      "100% en ligne, flexibilité maximale",
+      "Large catalogue de formations (200+)",
+      "Diplômes reconnus RNCP",
+      "Éligible CPF et alternance",
+      "Rentrées tout au long de l'année"
+    ],
+    cons: [
+      "Taux d'insertion plus faible que les bootcamps",
+      "Nécessite beaucoup d'autonomie et de discipline",
+      "Qualité inégale selon les parcours",
+      "Pas de dynamique de groupe ni de réseau alumni structuré",
+      "Support parfois lent"
+    ],
+    reviews: [
+      {
+        author: "Sandra L.",
+        rating: 4,
+        date: "2025-11-28",
+        text: "Très bon rapport qualité-prix. J'ai fait le parcours dev web en 10 mois en parallèle de mon travail. Le coach est disponible et utile.",
+        context: "Reconversion en parallèle d'un emploi"
+      },
+      {
+        author: "Fabien R.",
+        rating: 3,
+        date: "2025-08-14",
+        text: "Le contenu est correct mais il faut être très motivé. Pas de camarades de promo, c'est parfois solitaire. Le diplôme RNCP est un vrai plus.",
+        context: "Formation data analyst"
+      },
+      {
+        author: "Isabelle M.",
+        rating: 4,
+        date: "2025-10-02",
+        text: "En alternance, c'est un deal imbattable. Formation gratuite, salaire, et diplôme. Le contenu pourrait être plus à jour sur certains modules.",
+        context: "Alternante cybersécurité"
+      }
+    ],
+    features: ["HTML/CSS", "JavaScript", "React", "Python", "SQL", "PHP", "WordPress", "Figma"],
+    affiliateUrl: "https://www.studi.com/?utm_source=devcompass&utm_medium=referral&utm_campaign=fiche"
+  },
+  {
+    slug: "datascientest",
+    name: "DataScientest",
+    shortDescription: "Organisme de formation spécialisé en Data Science, Data Engineering, IA et Machine Learning.",
+    description: `DataScientest est un organisme de formation français fondé en 2017, spécialisé dans les métiers de la data. Il propose des formations en Data Analyst, Data Scientist, Data Engineer, Machine Learning Engineer et IA Generative.
+
+Le modèle pédagogique est hybride : 85% de contenu en ligne sur une plateforme dédiée et 15% de masterclasses en visio avec des experts. Les formations durent de 3 à 5 mois et sont disponibles en format bootcamp (temps plein) ou continu (temps partiel, compatible avec un emploi).
+
+DataScientest est reconnu pour la qualité de ses contenus techniques et ses partenariats avec des grandes écoles (Mines ParisTech, Sorbonne). Les certifications délivrées sont reconnues par l'État (RNCP) et les formations sont éligibles au CPF.`,
+    price: 5995,
+    priceLabel: "5 995 €",
+    duration: "3 à 5 mois",
+    durationWeeks: 16,
+    format: ["Remote", "Temps plein", "Temps partiel"],
+    cities: ["Remote (100% en ligne)", "Paris (masterclasses)"],
+    categories: ["data"],
+    cpf: true,
+    rating: 4.4,
+    reviewCount: 1456,
+    insertionRate: 90,
+    website: "https://datascientest.com",
+    logo: "/logos/datascientest.svg",
+    pros: [
+      "Spécialiste reconnu en Data/IA",
+      "Partenariats grandes écoles (Mines, Sorbonne)",
+      "Format hybride flexible (85% en ligne)",
+      "Certification RNCP reconnue",
+      "Éligible CPF",
+      "Bon taux d'insertion (90%)"
+    ],
+    cons: [
+      "Pas de formation en développement web",
+      "Prix élevé pour du 85% en ligne",
+      "Peu d'interactions en direct",
+      "Plateforme e-learning parfois rigide",
+      "Réseau alumni moins développé que Jedha"
+    ],
+    reviews: [
+      {
+        author: "Nicolas D.",
+        rating: 5,
+        date: "2025-12-05",
+        text: "Formation Data Scientist excellente. Le partenariat Mines donne de la crédibilité. Les projets sont bien pensés et le contenu technique est solide.",
+        context: "Ingénieur en reconversion"
+      },
+      {
+        author: "Marina T.",
+        rating: 4,
+        date: "2025-09-20",
+        text: "Bon contenu, format flexible qui permet de continuer à travailler. Les masterclasses sont un vrai plus. J'aurais aimé plus d'interactions.",
+        context: "Data Analyst en montée en compétences"
+      },
+      {
+        author: "Olivier P.",
+        rating: 4,
+        date: "2025-07-15",
+        text: "Très bonne formation technique. Le prix est justifié par la qualité. Attention, il faut déjà avoir des bases en maths/stats pour suivre sereinement.",
+        context: "Reconversion depuis le conseil"
+      }
+    ],
+    features: ["Python", "SQL", "Machine Learning", "Deep Learning", "NLP", "Spark", "Cloud AWS/GCP", "Power BI"],
+    affiliateUrl: "https://datascientest.com/?utm_source=devcompass&utm_medium=referral&utm_campaign=fiche"
+  },
 ];
 
 export function getFormationBySlug(slug: string): Formation | undefined {
