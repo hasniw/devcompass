@@ -3,6 +3,7 @@ import { formations } from '@/data/formations';
 import { categories } from '@/data/categories';
 import { blogPosts } from '@/data/blog';
 import FormationCard from '@/components/FormationCard';
+import HomeLeadSection from '@/components/HomeLeadSection';
 
 export default function HomePage() {
   const topFormations = [...formations].sort((a, b) => b.rating - a.rating).slice(0, 4);
@@ -91,6 +92,9 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* Lead Capture */}
+      <HomeLeadSection />
 
       {/* CTA */}
       <section className="bg-indigo-600 py-16">

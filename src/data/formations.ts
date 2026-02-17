@@ -20,6 +20,7 @@ export interface Formation {
   cons: string[];
   reviews: Review[];
   features: string[];
+  affiliateUrl: string;
 }
 
 export interface Review {
@@ -89,7 +90,8 @@ Le Wagon propose aussi un format à temps partiel sur 24 semaines pour ceux qui 
         context: "Étudiante en reconversion"
       }
     ],
-    features: ["Ruby on Rails", "JavaScript", "HTML/CSS", "PostgreSQL", "Heroku", "GitHub", "Figma"]
+    features: ["Ruby on Rails", "JavaScript", "HTML/CSS", "PostgreSQL", "Heroku", "GitHub", "Figma"],
+    affiliateUrl: "https://www.lewagon.com/?utm_source=devcompass&utm_medium=referral"
   },
   {
     slug: "ironhack",
@@ -149,7 +151,8 @@ Ironhack se distingue par son approche orientée employabilité avec un Career S
         context: "Auto-entrepreneur"
       }
     ],
-    features: ["JavaScript", "React", "Node.js", "Express", "MongoDB", "HTML/CSS", "Git"]
+    features: ["JavaScript", "React", "Node.js", "Express", "MongoDB", "HTML/CSS", "Git"],
+    affiliateUrl: "https://www.ironhack.com/?utm_source=devcompass&utm_medium=referral"
   },
   {
     slug: "jedha",
@@ -202,7 +205,8 @@ Jedha se distingue par la qualité de ses contenus en data science et son approc
         context: "Analyste business"
       }
     ],
-    features: ["Python", "SQL", "Machine Learning", "Deep Learning", "Spark", "Cloud AWS", "Tableau"]
+    features: ["Python", "SQL", "Machine Learning", "Deep Learning", "Spark", "Cloud AWS", "Tableau"],
+    affiliateUrl: "https://www.jedha.co/?utm_source=devcompass&utm_medium=referral"
   },
   {
     slug: "openclassrooms",
@@ -263,7 +267,8 @@ Le gros avantage d'OpenClassrooms est sa flexibilité et son prix attractif. L'i
         context: "Alternant développeur"
       }
     ],
-    features: ["HTML/CSS", "JavaScript", "React", "Python", "PHP", "Node.js", "SQL"]
+    features: ["HTML/CSS", "JavaScript", "React", "Python", "PHP", "Node.js", "SQL"],
+    affiliateUrl: "https://openclassrooms.com/?utm_source=devcompass&utm_medium=referral"
   },
   {
     slug: "wild-code-school",
@@ -316,7 +321,8 @@ Le prix est compétitif par rapport aux autres bootcamps, et la présence de nom
         context: "Campus de Toulouse"
       }
     ],
-    features: ["JavaScript", "React", "Node.js", "PHP", "Symfony", "HTML/CSS", "Git", "Agile"]
+    features: ["JavaScript", "React", "Node.js", "PHP", "Symfony", "HTML/CSS", "Git", "Agile"],
+    affiliateUrl: "https://www.wildcodeschool.com/?utm_source=devcompass&utm_medium=referral"
   },
   {
     slug: "la-capsule",
@@ -369,7 +375,8 @@ La Capsule mise sur une pédagogie intensive avec des journées de 9h à 18h30 e
         context: "Ancien commercial"
       }
     ],
-    features: ["JavaScript", "React", "React Native", "Node.js", "Express", "MongoDB", "HTML/CSS", "Git"]
+    features: ["JavaScript", "React", "React Native", "Node.js", "Express", "MongoDB", "HTML/CSS", "Git"],
+    affiliateUrl: "https://www.lacapsule.academy/?utm_source=devcompass&utm_medium=referral"
   },
   {
     slug: "holberton-school",
@@ -423,7 +430,8 @@ Holberton se distingue par la profondeur technique de sa formation. Contrairemen
         context: "Diplômée, dev chez une startup"
       }
     ],
-    features: ["C", "Python", "Linux", "DevOps", "Docker", "SQL", "Algorithms", "System Engineering"]
+    features: ["C", "Python", "Linux", "DevOps", "Docker", "SQL", "Algorithms", "System Engineering"],
+    affiliateUrl: "https://www.holbertonschool.com/?utm_source=devcompass&utm_medium=referral"
   },
   {
     slug: "epitech-digital",
@@ -477,7 +485,8 @@ Epitech Digital se positionne comme une alternative plus accessible qu'Epitech (
         context: "Diplômée du Bachelor"
       }
     ],
-    features: ["HTML/CSS", "JavaScript", "Python", "UX Design", "Data Analytics", "Marketing Digital", "Agile"]
+    features: ["HTML/CSS", "JavaScript", "Python", "UX Design", "Data Analytics", "Marketing Digital", "Agile"],
+    affiliateUrl: "https://www.epitech.digital/?utm_source=devcompass&utm_medium=referral"
   }
 ];
 

@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import { formations } from '@/data/formations';
 import Link from 'next/link';
 import StarRating from './StarRating';
+import LeadForm from './LeadForm';
 
 export default function ComparateurClient() {
   const [priceMax, setPriceMax] = useState(10000);
@@ -12,6 +13,7 @@ export default function ComparateurClient() {
   const [categoryFilter, setCategoryFilter] = useState('all');
   const [cpfOnly, setCpfOnly] = useState(false);
   const [sortBy, setSortBy] = useState<'rating' | 'price' | 'insertion'>('rating');
+  const [leadFormSlug, setLeadFormSlug] = useState<string | null>(null);
 
   const filtered = useMemo(() => {
     const result = formations.filter(f => {
@@ -35,6 +37,7 @@ export default function ComparateurClient() {
 
   return (
     <div>
+      {leadFormSlug && <LeadForm isModal onClose={() => setLeadFormSlug(null)} preselectedFormation={leadFormSlug} />}
       {/* Filters */}
       <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
         <h2 className="font-bold text-lg mb-4">🔍 Filtres</h2>
@@ -139,9 +142,15 @@ export default function ComparateurClient() {
                   {f.cpf ? <span className="text-green-500">✓</span> : <span className="text-gray-300">✗</span>}
                 </td>
                 <td className="px-6 py-4">
-                  <Link href={`/formations/${f.slug}`} className="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
-                    Voir →
-                  </Link>
+                  <div className="flex items-center gap-2">
+                    <Link href={`/formations/${f.slug}`} className="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                      Voir →
+                    </Link>
+                    <button onClick={() => setLeadFormSlug(f.slug)}
+                      className="text-xs bg-indigo-600 text-white px-3 py-1 rounded-full hover:bg-indigo-700 transition whitespace-nowrap">
+                      En savoir +
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}

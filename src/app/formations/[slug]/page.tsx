@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { formations, getFormationBySlug } from '@/data/formations';
 import StarRating from '@/components/StarRating';
+import FormationCTA from '@/components/FormationCTA';
 
 export async function generateStaticParams() {
   return formations.map(f => ({ slug: f.slug }));
@@ -201,19 +202,7 @@ export default function FormationPage({ params }: { params: { slug: string } }) 
         </div>
 
         {/* CTA */}
-        <div className="bg-indigo-600 rounded-2xl p-8 text-center">
-          <h2 className="text-2xl font-bold text-white mb-3">Intéressé par {formation.name} ?</h2>
-          <p className="text-indigo-100 mb-6">Visitez leur site pour en savoir plus et vous inscrire à une session d&apos;information.</p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={formation.website} target="_blank" rel="noopener noreferrer"
-              className="bg-white text-indigo-600 px-8 py-3 rounded-xl font-bold hover:bg-gray-100 transition">
-              Visiter le site →
-            </a>
-            <Link href="/comparateur" className="bg-indigo-500/30 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-500/50 transition border border-white/20">
-              Comparer avec d&apos;autres
-            </Link>
-          </div>
-        </div>
+        <FormationCTA formation={formation} />
       </div>
     </>
   );
