@@ -24,95 +24,97 @@ export default function ComparateurClient() {
       if (cpfOnly && !f.cpf) return false;
       return true;
     });
-
     result.sort((a, b) => {
       if (sortBy === 'rating') return b.rating - a.rating;
       if (sortBy === 'price') return a.price - b.price;
       if (sortBy === 'insertion') return (b.insertionRate || 0) - (a.insertionRate || 0);
       return 0;
     });
-
     return result;
   }, [priceMax, durationMax, formatFilter, categoryFilter, cpfOnly, sortBy]);
+
+  const formats = ['all', 'Présentiel', 'Remote', 'Temps plein', 'Temps partiel', 'Alternance'];
+  const categories = ['all', 'dev-web', 'data', 'cybersec', 'design'];
+  const catLabels: Record<string, string> = { all: 'Toutes', 'dev-web': 'Dev Web', data: 'Data & IA', cybersec: 'Cyber', design: 'Design' };
 
   return (
     <div>
       {leadFormSlug && <LeadForm isModal onClose={() => setLeadFormSlug(null)} preselectedFormation={leadFormSlug} />}
+      
       {/* Filters */}
-      <div className="bg-white rounded-2xl border border-gray-200 p-6 mb-8">
-        <h2 className="font-bold text-lg mb-4">🔍 Filtres</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="glass-strong rounded-2xl p-6 mb-8">
+        <h2 className="font-bold text-lg text-white mb-5">🎛 Filtres</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Budget max : {priceMax === 10000 ? '10 000+ €' : `${priceMax.toLocaleString()} €`}
+            <label className="block text-sm font-medium text-gray-400 mb-2">
+              Budget max : <span className="text-white">{priceMax === 10000 ? '10 000+ €' : `${priceMax.toLocaleString()} €`}</span>
             </label>
             <input type="range" min={0} max={10000} step={500} value={priceMax}
               onChange={e => setPriceMax(Number(e.target.value))}
-              className="w-full accent-indigo-600" />
+              className="w-full" />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Durée max : {durationMax >= 200 ? '200+ semaines' : `${durationMax} semaines`}
+            <label className="block text-sm font-medium text-gray-400 mb-2">
+              Durée max : <span className="text-white">{durationMax >= 200 ? '200+ sem.' : `${durationMax} sem.`}</span>
             </label>
             <input type="range" min={4} max={200} step={4} value={durationMax}
               onChange={e => setDurationMax(Number(e.target.value))}
-              className="w-full accent-indigo-600" />
+              className="w-full" />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Format</label>
-            <select value={formatFilter} onChange={e => setFormatFilter(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
-              <option value="all">Tous les formats</option>
-              <option value="Présentiel">Présentiel</option>
-              <option value="Remote">Remote</option>
-              <option value="Temps plein">Temps plein</option>
-              <option value="Temps partiel">Temps partiel</option>
-              <option value="Alternance">Alternance</option>
-            </select>
+            <label className="block text-sm font-medium text-gray-400 mb-2">Format</label>
+            <div className="flex flex-wrap gap-2">
+              {formats.map(f => (
+                <button key={f} onClick={() => setFormatFilter(f)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${formatFilter === f ? 'bg-violet-600 text-white' : 'glass text-gray-400 hover:text-white'}`}>
+                  {f === 'all' ? 'Tous' : f}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Catégorie</label>
-            <select value={categoryFilter} onChange={e => setCategoryFilter(e.target.value)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
-              <option value="all">Toutes les catégories</option>
-              <option value="dev-web">Développement Web</option>
-              <option value="data">Data Science & IA</option>
-              <option value="cybersec">Cybersécurité</option>
-              <option value="design">UX/UI Design</option>
-            </select>
+            <label className="block text-sm font-medium text-gray-400 mb-2">Catégorie</label>
+            <div className="flex flex-wrap gap-2">
+              {categories.map(c => (
+                <button key={c} onClick={() => setCategoryFilter(c)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${categoryFilter === c ? 'bg-blue-600 text-white' : 'glass text-gray-400 hover:text-white'}`}>
+                  {catLabels[c] || c}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Trier par</label>
-            <select value={sortBy} onChange={e => setSortBy(e.target.value as typeof sortBy)}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm">
-              <option value="rating">Note</option>
-              <option value="price">Prix (croissant)</option>
-              <option value="insertion">Taux d&apos;insertion</option>
-            </select>
+            <label className="block text-sm font-medium text-gray-400 mb-2">Trier par</label>
+            <div className="flex gap-2">
+              {([['rating', '⭐ Note'], ['price', '💰 Prix'], ['insertion', '📈 Insertion']] as const).map(([val, label]) => (
+                <button key={val} onClick={() => setSortBy(val)}
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${sortBy === val ? 'bg-amber-500 text-black' : 'glass text-gray-400 hover:text-white'}`}>
+                  {label}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="flex items-end">
-            <label className="flex items-center gap-2 cursor-pointer">
-              <input type="checkbox" checked={cpfOnly} onChange={e => setCpfOnly(e.target.checked)}
-                className="w-4 h-4 accent-indigo-600" />
-              <span className="text-sm font-medium text-gray-700">Éligible CPF uniquement</span>
-            </label>
+            <button onClick={() => setCpfOnly(!cpfOnly)}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${cpfOnly ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30' : 'glass text-gray-400 hover:text-white'}`}>
+              {cpfOnly ? '✅' : '☐'} CPF uniquement
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Results count */}
       <p className="text-sm text-gray-500 mb-4">{filtered.length} formation{filtered.length > 1 ? 's' : ''} trouvée{filtered.length > 1 ? 's' : ''}</p>
 
       {/* Table */}
       <div className="overflow-x-auto">
-        <table className="w-full bg-white rounded-2xl border border-gray-200 overflow-hidden">
+        <table className="w-full glass rounded-2xl overflow-hidden">
           <thead>
-            <tr className="bg-gray-50 text-left text-sm font-medium text-gray-500">
+            <tr className="border-b border-white/10 text-left text-sm font-medium text-gray-400">
               <th className="px-6 py-4">Formation</th>
               <th className="px-6 py-4">Note</th>
               <th className="px-6 py-4">Prix</th>
@@ -123,31 +125,31 @@ export default function ComparateurClient() {
               <th className="px-6 py-4"></th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-100">
-            {filtered.map((f) => (
-              <tr key={f.slug} className="hover:bg-gray-50 transition">
+          <tbody>
+            {filtered.map((f, i) => (
+              <tr key={f.slug} className={`border-b border-white/5 hover:bg-white/5 transition ${i % 2 === 0 ? 'bg-white/[0.02]' : ''}`}>
                 <td className="px-6 py-4">
-                  <Link href={`/formations/${f.slug}`} className="font-semibold text-gray-900 hover:text-indigo-600 transition">
+                  <Link href={`/formations/${f.slug}`} className="font-semibold text-white hover:text-violet-400 transition">
                     {f.name}
                   </Link>
                 </td>
                 <td className="px-6 py-4"><StarRating rating={f.rating} /></td>
-                <td className="px-6 py-4 text-sm font-medium">{f.price === 0 ? 'Gratuit*' : `${f.price.toLocaleString()} €`}</td>
-                <td className="px-6 py-4 text-sm">{f.durationWeeks} sem.</td>
-                <td className="px-6 py-4 text-sm hidden md:table-cell">{f.format[0]}</td>
+                <td className="px-6 py-4 text-sm font-medium text-gray-300">{f.price === 0 ? 'Gratuit*' : `${f.price.toLocaleString()} €`}</td>
+                <td className="px-6 py-4 text-sm text-gray-400">{f.durationWeeks} sem.</td>
+                <td className="px-6 py-4 text-sm text-gray-400 hidden md:table-cell">{f.format[0]}</td>
                 <td className="px-6 py-4 text-sm hidden lg:table-cell">
-                  {f.insertionRate ? <span className="text-green-600 font-semibold">{f.insertionRate}%</span> : '—'}
+                  {f.insertionRate ? <span className="text-emerald-400 font-semibold">{f.insertionRate}%</span> : <span className="text-gray-600">—</span>}
                 </td>
                 <td className="px-6 py-4 hidden md:table-cell">
-                  {f.cpf ? <span className="text-green-500">✓</span> : <span className="text-gray-300">✗</span>}
+                  {f.cpf ? <span className="text-emerald-400">✓</span> : <span className="text-gray-600">✗</span>}
                 </td>
                 <td className="px-6 py-4">
                   <div className="flex items-center gap-2">
-                    <Link href={`/formations/${f.slug}`} className="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                    <Link href={`/formations/${f.slug}`} className="text-violet-400 hover:text-violet-300 text-sm font-medium">
                       Voir →
                     </Link>
                     <button onClick={() => setLeadFormSlug(f.slug)}
-                      className="text-xs bg-indigo-600 text-white px-3 py-1 rounded-full hover:bg-indigo-700 transition whitespace-nowrap">
+                      className="text-xs bg-gradient-to-r from-violet-600 to-blue-500 text-white px-3 py-1 rounded-full hover:shadow-lg hover:shadow-violet-500/25 transition-all whitespace-nowrap">
                       En savoir +
                     </button>
                   </div>

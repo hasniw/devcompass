@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
-const inter = Inter({ subsets: ['latin'] });
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space' });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://devcompass.fr'),
@@ -20,19 +20,14 @@ export const metadata: Metadata = {
     title: 'DevCompass - Comparateur de formations tech & bootcamps en France',
     description: 'Comparez les meilleures formations tech et bootcamps en France. Prix, avis, durée et taux d\'insertion.',
   },
-  twitter: {
-    card: 'summary_large_image',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  twitter: { card: 'summary_large_image' },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr">
-      <body className={inter.className}>
+    <html lang="fr" className="dark">
+      <body className={`${spaceGrotesk.className} bg-[#0a0a0a]`}>
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />

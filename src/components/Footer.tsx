@@ -2,52 +2,56 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-400 mt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="relative bg-[#0a0a0a] border-t border-white/5 mt-0">
+      {/* Top gradient line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-violet-500 to-transparent" />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
           <div>
             <div className="flex items-center gap-2 mb-4">
               <span className="text-2xl">🧭</span>
-              <span className="font-bold text-xl text-white">DevCompass</span>
+              <span className="font-bold text-xl text-white">Dev<span className="gradient-text">Compass</span></span>
             </div>
-            <p className="text-sm">Le comparateur de formations tech et bootcamps en France. Trouvez la formation qui vous correspond.</p>
+            <p className="text-sm text-gray-500 leading-relaxed">Le comparateur de formations tech et bootcamps en France. Trouvez la formation qui vous correspond.</p>
+            <div className="flex gap-3 mt-4">
+              {['Twitter', 'LinkedIn', 'GitHub'].map(s => (
+                <span key={s} className="text-xs text-gray-600 glass px-3 py-1 rounded-full hover:text-white cursor-pointer transition">{s}</span>
+              ))}
+            </div>
           </div>
 
           <div>
-            <h3 className="font-semibold text-white mb-4">Formations</h3>
+            <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Formations</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/formations/le-wagon" className="hover:text-white transition">Le Wagon</Link></li>
-              <li><Link href="/formations/ironhack" className="hover:text-white transition">Ironhack</Link></li>
-              <li><Link href="/formations/jedha" className="hover:text-white transition">Jedha</Link></li>
-              <li><Link href="/formations/la-capsule" className="hover:text-white transition">La Capsule</Link></li>
-              <li><Link href="/formations/openclassrooms" className="hover:text-white transition">OpenClassrooms</Link></li>
+              {['le-wagon', 'ironhack', 'jedha', 'la-capsule', 'openclassrooms'].map(slug => (
+                <li key={slug}><Link href={`/formations/${slug}`} className="text-gray-500 hover:text-violet-400 transition">{slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</Link></li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold text-white mb-4">Catégories</h3>
+            <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Catégories</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/categories/dev-web" className="hover:text-white transition">Développement Web</Link></li>
-              <li><Link href="/categories/data" className="hover:text-white transition">Data Science & IA</Link></li>
-              <li><Link href="/categories/cybersec" className="hover:text-white transition">Cybersécurité</Link></li>
-              <li><Link href="/categories/design" className="hover:text-white transition">UX/UI Design</Link></li>
+              {[{s:'dev-web',n:'Développement Web'},{s:'data',n:'Data Science & IA'},{s:'cybersec',n:'Cybersécurité'},{s:'design',n:'UX/UI Design'}].map(c => (
+                <li key={c.s}><Link href={`/categories/${c.s}`} className="text-gray-500 hover:text-blue-400 transition">{c.n}</Link></li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h3 className="font-semibold text-white mb-4">Blog</h3>
+            <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Blog</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/blog/devenir-developpeur-2026" className="hover:text-white transition">Devenir développeur en 2026</Link></li>
-              <li><Link href="/blog/reconversion-tech-30-ans" className="hover:text-white transition">Reconversion tech à 30 ans</Link></li>
-              <li><Link href="/blog/bootcamp-vs-autodidacte" className="hover:text-white transition">Bootcamp vs autodidacte</Link></li>
-              <li><Link href="/blog/le-wagon-avis-2026" className="hover:text-white transition">Le Wagon avis 2026</Link></li>
+              {[{s:'devenir-developpeur-2026',n:'Devenir développeur en 2026'},{s:'reconversion-tech-30-ans',n:'Reconversion tech à 30 ans'},{s:'bootcamp-vs-autodidacte',n:'Bootcamp vs autodidacte'},{s:'le-wagon-avis-2026',n:'Le Wagon avis 2026'}].map(p => (
+                <li key={p.s}><Link href={`/blog/${p.s}`} className="text-gray-500 hover:text-amber-400 transition">{p.n}</Link></li>
+              ))}
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-sm text-center">
-          <p>© 2026 DevCompass. Tous droits réservés. Comparateur indépendant de formations tech en France.</p>
-          <p className="mt-2 text-xs text-gray-500">Les liens vers les formations peuvent contenir des liens d&apos;affiliation. Cela ne modifie pas nos avis qui restent 100% indépendants.</p>
+        <div className="border-t border-white/5 mt-12 pt-8 text-sm text-center">
+          <p className="text-gray-600">© 2026 DevCompass. Tous droits réservés. Comparateur indépendant de formations tech en France.</p>
+          <p className="mt-2 text-xs text-gray-700">Les liens vers les formations peuvent contenir des liens d&apos;affiliation. Cela ne modifie pas nos avis qui restent 100% indépendants.</p>
         </div>
       </div>
     </footer>
