@@ -17,81 +17,74 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <HeroScene />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/20 via-transparent to-[#0a0a0a] z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/40 via-transparent to-[#0a0a0a] z-[1]" />
         <div className="absolute inset-0 bg-gradient-to-r from-violet-900/15 via-transparent to-blue-900/15 z-[1]" />
         
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36 relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-40 relative z-10 w-full">
           <div className="text-center">
-            <div className="inline-flex items-center gap-2 glass-strong rounded-full px-5 py-2 mb-8 text-sm text-gray-300 badge-shimmer">
-              <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
-              Le comparateur #1 de formations tech en France
+            <div className="inline-block glass-strong rounded-full px-5 py-2 mb-8 text-sm text-gray-300 tracking-wide">
+              ✨ Le comparateur #1 de formations tech en France
             </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold font-display text-white mb-8 leading-[1.08] tracking-tight">
-              Trouvez la formation tech<br />
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white mb-8 leading-[1.05] tracking-tight">
+              Trouvez la formation<br />
               <span className="gradient-text">qui vous correspond</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
               Comparez les meilleurs bootcamps et formations en France. 
               Prix, avis, durée, taux d&apos;insertion : toutes les infos pour faire le bon choix.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/comparateur" className="group bg-gradient-to-r from-violet-600 to-blue-500 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:shadow-[0_8px_30px_rgba(124,58,237,0.3)] hover:-translate-y-0.5">
-                <span className="flex items-center justify-center gap-2">
-                  Comparer les formations
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-                </span>
+            <div className="flex flex-col sm:flex-row gap-5 justify-center">
+              <Link href="/comparateur" className="btn-shine bg-gradient-to-r from-violet-600 to-blue-500 text-white px-10 py-5 rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-violet-500/30 transition-all duration-300 hover:scale-105">
+                🔍 Comparer les formations
               </Link>
-              <Link href="/categories/dev-web" className="glass text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all duration-300">
-                Explorer par catégorie
+              <Link href="/categories/dev-web" className="glass text-white px-10 py-5 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all duration-300 hover:scale-[1.03]">
+                📚 Explorer par catégorie
               </Link>
             </div>
-            <div className="mt-14 flex items-center justify-center gap-8 text-gray-500 text-sm">
-              <span className="flex items-center gap-1.5"><span className="text-emerald-400">✓</span> 8+ formations</span>
-              <span className="flex items-center gap-1.5"><span className="text-emerald-400">✓</span> Avis vérifiés</span>
-              <span className="flex items-center gap-1.5"><span className="text-emerald-400">✓</span> 100% indépendant</span>
+            <div className="mt-14 flex flex-wrap items-center justify-center gap-8 text-gray-500 text-sm">
+              <span className="flex items-center gap-2">✅ 8+ formations comparées</span>
+              <span className="flex items-center gap-2">✅ Avis vérifiés</span>
+              <span className="flex items-center gap-2">✅ 100% indépendant</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Top Formations */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <ScrollReveal>
-          <div className="flex items-end justify-between mb-12">
+          <div className="flex items-end justify-between mb-14">
             <div>
-              <p className="text-violet-400 text-sm font-semibold tracking-wide uppercase mb-2">Sélection</p>
-              <h2 className="text-3xl md:text-4xl font-extrabold font-display text-white">Top formations</h2>
+              <p className="text-violet-400 font-semibold text-sm uppercase tracking-widest mb-3">Les mieux notées</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white">🏆 Top formations</h2>
               <p className="text-gray-500 mt-2 text-lg">Les formations les mieux notées par la communauté</p>
             </div>
-            <Link href="/comparateur" className="text-violet-400 font-medium hover:text-violet-300 transition hidden sm:flex items-center gap-1 group">
-              Voir toutes
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            <Link href="/comparateur" className="text-violet-400 font-medium hover:text-violet-300 transition hidden sm:flex items-center gap-1 text-sm group">
+              Voir toutes <span className="group-hover:translate-x-1 transition-transform">→</span>
             </Link>
           </div>
         </ScrollReveal>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          {topFormations.map((f, i) => (
-            <ScrollReveal key={f.slug} delay={i * 0.08}>
-              <FormationCard formation={f} index={i} />
-            </ScrollReveal>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7">
+          {topFormations.map((f, i) => <FormationCard key={f.slug} formation={f} index={i} />)}
         </div>
       </section>
 
+      <div className="section-divider max-w-5xl mx-auto" />
+
       {/* Categories */}
-      <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#12121f]/60 to-[#0a0a0a]" />
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="relative py-24 md:py-32 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#12122a]/40 to-[#0a0a0a]" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <ScrollReveal>
-            <p className="text-blue-400 text-sm font-semibold tracking-wide uppercase mb-2">Parcourir</p>
-            <h2 className="text-3xl md:text-4xl font-extrabold font-display text-white mb-12">Explorer par catégorie</h2>
+            <p className="text-blue-400 font-semibold text-sm uppercase tracking-widest mb-3">Domaines</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-14">📂 Explorer par catégorie</h2>
           </ScrollReveal>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-7">
             {categories.map((cat, i) => (
-              <ScrollReveal key={cat.slug} delay={i * 0.08}>
+              <ScrollReveal key={cat.slug} delay={i * 0.1}>
                 <Link href={`/categories/${cat.slug}`}
-                  className="group card-premium glass rounded-2xl p-7 block hover:bg-white/[0.07] transition-all duration-500 hover:-translate-y-1">
-                  <span className="text-4xl mb-4 block group-hover:scale-110 transition-transform duration-500">{cat.icon}</span>
+                  className="group glass rounded-2xl p-8 block card-hover">
+                  <span className="text-5xl mb-4 block">{cat.icon}</span>
                   <h3 className="font-bold text-lg text-white group-hover:text-violet-300 transition">{cat.name}</h3>
                   <p className="text-sm text-gray-500 mt-2 leading-relaxed">{cat.title}</p>
                 </Link>
@@ -101,25 +94,27 @@ export default function HomePage() {
         </div>
       </section>
 
+      <div className="section-divider max-w-5xl mx-auto" />
+
       {/* Blog */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
         <ScrollReveal>
-          <p className="text-amber-400 text-sm font-semibold tracking-wide uppercase mb-2">Ressources</p>
-          <h2 className="text-3xl md:text-4xl font-extrabold font-display text-white mb-12">Articles récents</h2>
+          <p className="text-amber-400 font-semibold text-sm uppercase tracking-widest mb-3">Ressources</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-14">📝 Articles récents</h2>
         </ScrollReveal>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-7">
           {blogPosts.slice(0, 4).map((post, i) => (
-            <ScrollReveal key={post.slug} delay={i * 0.08}>
+            <ScrollReveal key={post.slug} delay={i * 0.1}>
               <Link href={`/blog/${post.slug}`}
-                className="group card-premium glass rounded-2xl p-7 block hover:bg-white/[0.07] transition-all duration-500">
+                className="group glass rounded-2xl p-8 block card-hover">
                 <div className="flex items-center gap-3 text-sm text-gray-500 mb-3">
-                  <span className="bg-violet-500/15 text-violet-400 px-3 py-0.5 rounded-full text-xs font-semibold">{post.category}</span>
+                  <span className="bg-violet-500/20 text-violet-400 px-3 py-1 rounded-full text-xs font-semibold">{post.category}</span>
                   <span>{post.readTime}</span>
                   <span className="text-gray-700">•</span>
                   <span>{new Date(post.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
                 </div>
-                <h3 className="font-bold text-lg text-white group-hover:text-violet-300 transition mb-3">{post.title}</h3>
-                <p className="text-gray-500 text-sm line-clamp-2 leading-relaxed">{post.excerpt}</p>
+                <h3 className="font-bold text-xl text-white group-hover:text-violet-300 transition mb-3">{post.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed line-clamp-2">{post.excerpt}</p>
               </Link>
             </ScrollReveal>
           ))}
@@ -130,16 +125,17 @@ export default function HomePage() {
       <HomeLeadSection />
 
       {/* CTA */}
-      <section className="relative py-28 overflow-hidden">
+      <section className="relative py-28 md:py-36 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-violet-900/20 via-blue-900/20 to-violet-900/20" />
         <div className="absolute inset-0 noise" />
         <ScrollReveal>
-          <div className="max-w-3xl mx-auto px-4 text-center relative z-10">
-            <h2 className="text-3xl md:text-4xl font-extrabold font-display text-white mb-5">Prêt à vous lancer ?</h2>
-            <p className="text-gray-400 text-lg mb-10 leading-relaxed">Utilisez notre comparateur interactif pour trouver la formation idéale selon votre budget, votre disponibilité et vos objectifs.</p>
-            <Link href="/comparateur" className="group inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-black px-10 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:shadow-[0_8px_30px_rgba(245,158,11,0.3)] hover:-translate-y-0.5">
-              Comparer maintenant
-              <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+          <div className="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6 leading-tight">Prêt à vous lancer ?</h2>
+            <p className="text-gray-400 text-lg sm:text-xl mb-12 max-w-2xl mx-auto leading-relaxed">
+              Utilisez notre comparateur interactif pour trouver la formation idéale selon votre budget, votre disponibilité et vos objectifs.
+            </p>
+            <Link href="/comparateur" className="btn-shine bg-gradient-to-r from-amber-500 to-orange-500 text-black px-12 py-5 rounded-2xl font-bold text-xl hover:shadow-xl hover:shadow-amber-500/30 transition-all duration-300 hover:scale-105 inline-block pulse-glow">
+              Comparer maintenant →
             </Link>
           </div>
         </ScrollReveal>
