@@ -14,6 +14,30 @@ export default function HomePage() {
 
   return (
     <div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "Organization",
+        name: "DevCompass", url: "https://devcompass.vercel.app",
+        description: "Comparateur de formations tech et bootcamps en France",
+        sameAs: []
+      }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Accueil", item: "https://devcompass.vercel.app" },
+          { "@type": "ListItem", position: 2, name: "Comparateur", item: "https://devcompass.vercel.app/comparateur" },
+          { "@type": "ListItem", position: 3, name: "Blog", item: "https://devcompass.vercel.app/blog/devenir-developpeur-2026" }
+        ]
+      }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org", "@type": "FAQPage",
+        mainEntity: [
+          { "@type": "Question", name: "Quelle est la meilleure formation dev web en France ?", acceptedAnswer: { "@type": "Answer", text: "Le Wagon, Ironhack et Jedha sont parmi les bootcamps les mieux notés. Le choix dépend de votre budget, disponibilité et objectifs de carrière." }},
+          { "@type": "Question", name: "Combien coûte un bootcamp en développement web ?", acceptedAnswer: { "@type": "Answer", text: "Les prix varient entre 4 000€ et 10 000€ selon la durée et le format (temps plein ou temps partiel). Certaines formations sont éligibles au CPF." }},
+          { "@type": "Question", name: "Les formations bootcamp sont-elles éligibles au CPF ?", acceptedAnswer: { "@type": "Answer", text: "Oui, la majorité des bootcamps reconnus comme Le Wagon, Jedha ou OpenClassrooms sont éligibles au CPF, permettant un financement partiel ou total." }},
+          { "@type": "Question", name: "Quelle est la durée moyenne d'un bootcamp tech ?", acceptedAnswer: { "@type": "Answer", text: "Un bootcamp intensif dure généralement 9 à 12 semaines à temps plein. Les formats temps partiel s'étalent sur 4 à 6 mois." }},
+          { "@type": "Question", name: "Quel taux d'insertion après un bootcamp ?", acceptedAnswer: { "@type": "Answer", text: "Les meilleurs bootcamps affichent des taux d'insertion de 80% à 95% dans les 6 mois suivant la formation." }}
+        ]
+      }) }} />
       {/* Hero */}
       <section className="relative min-h-[92vh] flex items-center overflow-hidden">
         <HeroScene />
@@ -123,6 +147,29 @@ export default function HomePage() {
 
       {/* Lead Capture */}
       <HomeLeadSection />
+
+      {/* FAQ */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <ScrollReveal>
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-12 text-center">❓ Questions fréquentes</h2>
+        </ScrollReveal>
+        <div className="space-y-6">
+          {[
+            { q: "Quelle est la meilleure formation dev web en France ?", a: "Le Wagon, Ironhack et Jedha sont parmi les bootcamps les mieux notés. Le choix dépend de votre budget, disponibilité et objectifs de carrière." },
+            { q: "Combien coûte un bootcamp en développement web ?", a: "Les prix varient entre 4 000€ et 10 000€ selon la durée et le format (temps plein ou temps partiel). Certaines formations sont éligibles au CPF." },
+            { q: "Les formations bootcamp sont-elles éligibles au CPF ?", a: "Oui, la majorité des bootcamps reconnus comme Le Wagon, Jedha ou OpenClassrooms sont éligibles au CPF, permettant un financement partiel ou total." },
+            { q: "Quelle est la durée moyenne d'un bootcamp tech ?", a: "Un bootcamp intensif dure généralement 9 à 12 semaines à temps plein. Les formats temps partiel s'étalent sur 4 à 6 mois." },
+            { q: "Quel taux d'insertion après un bootcamp ?", a: "Les meilleurs bootcamps affichent des taux d'insertion de 80% à 95% dans les 6 mois suivant la formation." },
+          ].map((faq, i) => (
+            <ScrollReveal key={i} delay={i * 0.08}>
+              <div className="glass rounded-2xl p-6">
+                <h3 className="font-bold text-lg text-white mb-2">{faq.q}</h3>
+                <p className="text-gray-400 leading-relaxed">{faq.a}</p>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="relative py-28 md:py-36 overflow-hidden">
