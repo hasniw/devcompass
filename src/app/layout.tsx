@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
-import { Space_Grotesk } from 'next/font/google';
+import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space' });
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className="dark">
-      <body className={`${spaceGrotesk.className} bg-[#0a0a0a]`}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans bg-[#0a0a0a]`}>
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
